@@ -1,9 +1,10 @@
-from typing import Callable
+from typing import Callable, Any
 
 
 def cache(func: Callable) -> Callable:
     my_store = {}
-    def wrapper(*args):
+
+    def wrapper(*args) -> Any:
         flag = True
         for arg in args:
             if isinstance(arg, (list, dict, set, Callable)):
